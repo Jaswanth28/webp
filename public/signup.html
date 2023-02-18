@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>WtLabs Sign Up Page</title>
+	<link rel="stylesheet" href="css/s.css">
+  <link rel="stylesheet" href="css/resp.css">
+</head>
+<body>
+<form>
+ <div class="wrapper">
+  <div class="logo">
+    <a href="index.html"><img src="pic/j1.jpeg" alt=""> </a>
+  </div>
+  <div class="title">
+    <p>Sign Up to WtLabs</p>
+  </div>
+  <div class="form">
+    <div class="input_field">
+      <label>Username</label>
+      <input type="text" class="input" id="usn" placeholder="username">
+    </div>
+    <div class="input_field">
+      <label>email address</label>
+      <input type="text" class="input" placeholder="email" id="email" required>
+    </div>
+    <div>
+      <label style="line-height:3.5em;">D.O.B:</label>
+      <input type="date" size="30" min="1985-01-01" max="2028-12-31" id="dob">
+    </div>
+    <div class="input_field">
+      <label>Password</label>
+      <input type="password" class="input" placeholder="password" id="password" required>
+    </div>
+    <div class="input_field">
+      <label>Re-Enter Password</label>
+      <input type="password" class="input" placeholder="password"  id="password2" required>
+    </div>
+    <div class="btn">
+      <button type="button" id="submitData" name="submitData" class="sign_btn">SIGNUP</button>
+    </div>
+  </div>
+  <div class="Login_act">
+    <p>Already Have an Account? <a href="login.html">LOGIN</a></p>
+</div>
+<div class="footer">
+    <ul>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Contact wtlabs</a></li>
+    </ul>
+</div> 
+</div>
+</form>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyBy2rpiTc40hDb8AqKRWWTV5dSFR_D7Hvs",
+  authDomain: "wtlabsv1.firebaseapp.com",
+  projectId: "wtlabsv1",
+  storageBucket: "wtlabsv1.appspot.com",
+  messagingSenderId: "452238667869",
+  appId: "1:452238667869:web:f9a8b4dcf1dc885a09ddb4",
+  measurementId: "G-HR465R7H7B"
+};
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    submitData.addEventListener('click', (e) => {
+
+var email = document.getElementById('email').value;
+var password = document.getElementById('password').value;
+var dob = document.getElementById('dob').value;
+var p2 = document.getElementById('password2').value;
+if(password != p2)
+{
+  alert('Both password must be same');
+  location.replace("signup.html");
+}
+
+//sign up user
+createUserWithEmailAndPassword(auth, email, password, dob)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ... user.uid
+        set(ref(database, 'users/' + user.uid), {
+            email: email,
+            password: password,
+            DoB :dob
+        })
+            .then(() => {
+                // Data saved successfully!
+                alert('user created successfully');
+                location.replace("login.html");
+
+            })
+            .catch((error) => {
+                // The write failed...
+                alert(error);
+            });
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+    });
+});
+
+</script>
+</body>
+</html>

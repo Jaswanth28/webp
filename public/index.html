@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7046507855655440"
+      crossorigin="anonymous"></script>
+    <title>Welcome</title>
+</head>
+<body>
+    <nav class="navb background hnav-resp " >
+        <ul class="nlist vc-resp " >
+            <div class="logo"> <img src="pic/j1.jpeg" alt="j"></div>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>      
+            <li><a href="#service">SERVICE</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+            <li><a href="signup.html">SIGNUP</a></li>
+        </ul>
+        <div class="rnav vc-resp">
+            <!-- <input type="text" name="Search" id="Search"> -->
+            <!-- <button class="btnsm">Search</button> -->
+            <!-- </div> -->
+            <div class="sep">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+    </nav>
+</div>
+<section class="background fs" id="home">
+    <div class="bm">
+    <div class="fh">
+       <p class="tb">webpage is under development do help us </p> 
+       <div class="buttons">
+           <form action="follow.html">
+               <button type="submit" class="btn">Follow</button>
+        </form>
+           <form action="https://paypal.me/Jaswanth28?country.x=IN&locale.x=en_GB">
+               <input type="submit" value="fund" class="btn">
+           </form>
+       </div>
+    </div>
+    <div class="sh">
+        <img src="pic/j1.jpeg" alt="ts">
+    </div>
+    </div>
+</section>
+<section class="sr" id="about">
+    <div class="para">
+    <p class="st tb">
+        welcome to the new era of developmant<br>
+        we welcome you
+    </p>
+</div>
+    <div class="tm tl"><img src="pic/1.jpg" alt="nwh"></div>
+</section>
+<section class="sl" id="service">
+    <div class="para">
+    <p class="st tb">
+        welcome to the new era of developmant<br>
+        we welcome you
+    </p>
+</div>
+    <div class="tm tl"><img src="pic/1.jpg" alt="nwh"></div>
+</section>
+
+<section class="cont" id="contact">
+    <h2 class="text-center">CONTACT US</h2>
+    <div class="form">
+        <form onsubmit="smit()" method="get">
+        <input class="form-input" type="text" name="name" id="name" placeholder="Enter Your Name">
+        <input class="form-input" type="text" name="phone" id="phone" placeholder="Enter Your phone">
+        <input class="form-input" type="text" name="mail" id="mail" placeholder="Enter Your Email">
+        <textarea class="form-input" name="text" id="ftext" cols="30" rows="10" placeholder="eleborate your concern"></textarea>
+        <button type="submit" class="btn btnsm bd" id ="bsmt" name="bsmt" >Submit</button>
+        </form>
+    </div>
+</section>
+<footer class="background">
+    <p class="text-foot">
+        COPYRIGHT &copy; 2028 Jtrail- All Rights Resevered
+    </p>
+   
+</footer>
+<script src="js/resp.js"></script>
+<link rel="stylesheet" href="css/resp.css">
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
+    import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+    import {getFirestore,collection, addDoc} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js"
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDWhS9XEzoD4cBWjdCBdJaNGwmETxNA_lM",
+      authDomain: "wtlab-44286.firebaseapp.com",
+      projectId: "wtlab-44286",
+      storageBucket: "wtlab-44286.appspot.com",
+      messagingSenderId: "990398777421",
+      appId: "1:990398777421:web:d338068b08608329a47404",
+      measurementId: "G-V20DB7KNN3"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const firebase = require("firebase");
+// Required for side-effects
+    require("firebase/firestore");
+    const db = getFirestore(app);
+
+
+    function smit(){
+        alert('form submited');
+        var name = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var mail = document.getElementById('mail').value;
+        var fdata = document.getElementById('ftext').value;
+     
+    }
+  </script>
+</body>
+</html>

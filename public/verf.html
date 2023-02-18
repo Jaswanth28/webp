@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/s1.css">
+  <link rel="stylesheet" href="css/resp.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <div class="input_field">
+          <label>email address</label>
+          <input type="text" class="input" placeholder="email" id="email" required>
+        </div>
+        <div class="btn">
+            <button type="button" id="submitData" name="submitData" class="sign_btn">Verify</button>
+          </div>
+      <br>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+	import {  sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    // import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+  apiKey: "AIzaSyBy2rpiTc40hDb8AqKRWWTV5dSFR_D7Hvs",
+  authDomain: "wtlabsv1.firebaseapp.com",
+  projectId: "wtlabsv1",
+  storageBucket: "wtlabsv1.appspot.com",
+  messagingSenderId: "452238667869",
+  appId: "1:452238667869:web:f9a8b4dcf1dc885a09ddb4",
+  measurementId: "G-HR465R7H7B"
+};
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+	// const database = getDatabase(app);
+	const auth = getAuth(app);
+  submitData.addEventListener('click', (e) => {
+        var email = document.getElementById('email').value;
+    try {
+          email.sendEmailVerification()
+            // var link = FirebaseAuth.getInstance().generateEmailVerificationLink(email, actionCodeSettings);
+  // Construct email verification template, embed the link and send
+  // using custom SMTP server.
+        // sendCustomEmail(email, displayName, link);
+} catch (error) {
+  System.out.println("Error generating email link: " + error.getMessage());
+}
+})
+
+    </script>
+</body>
+</html>
